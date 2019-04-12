@@ -16,6 +16,10 @@
 
 const Factory = use('Factory')
 
+
+/**
+ * Client BluePrint
+ *  */
 Factory.blueprint('App/Models/User', (faker) => {
     return {
         name: faker.first(),
@@ -27,3 +31,38 @@ Factory.blueprint('App/Models/User', (faker) => {
         password: 'secret'
     }
 })
+
+
+/**
+ * Categories blueprint
+ */
+
+Factory.blueprint('App/Models/Category', (faker) => {
+    return {
+        title: faker.word(),
+        description: faker.sentence()
+    }
+})
+
+
+/**
+ * Products Blueprint
+ */
+
+Factory.blueprint('App/Models/Product', (faker) => {
+    return {
+        name: faker.animal({
+            type: 'pet'
+        }),
+        description: faker.sentence(),
+        price: faker.floating({
+            min: 0,
+            max: 200,
+            fixed: 2
+        })
+    }
+})
+
+/**
+ * Products Blueprint
+ */

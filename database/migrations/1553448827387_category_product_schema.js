@@ -3,18 +3,17 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class CategoryUserSchema extends Schema {
+class CategoryProductSchema extends Schema {
     up() {
-        this.create('category_users', (table) => {
+        this.create('category_product', (table) => {
             table.increments()
-            table.integer('user_id').unsigned()
+            table.integer('product_id').unsigned()
             table.integer('category_id').unsigned()
-            table.timestamps()
 
             table
-                .foreign('user_id')
+                .foreign('product_id')
                 .references('id')
-                .inTable('users')
+                .inTable('products')
                 .onDelete('cascade')
             table
                 .foreign('category_id')
@@ -24,8 +23,8 @@ class CategoryUserSchema extends Schema {
         })
     }
     down() {
-        this.drop('category_users')
+        this.drop('category_product')
     }
 }
 
-module.exports = CategoryUserSchema
+module.exports = CategoryProductSchema
