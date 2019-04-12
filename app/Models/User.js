@@ -21,6 +21,13 @@ class User extends Model {
         })
     }
 
+    /*
+    Oculta o password
+    */
+    static get hidden() {
+        return ['password']
+    }
+
     /**
      * User Traits
      */

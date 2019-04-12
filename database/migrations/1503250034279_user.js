@@ -9,6 +9,7 @@ class UserSchema extends Schema {
             table.increments()
             table.string('name', 80)
             table.string('surname', 200)
+            table.string('nick', 100)
             table
                 .string('email', 254)
                 .notNullable()
@@ -16,7 +17,7 @@ class UserSchema extends Schema {
             table
                 .string('password', 60)
                 .notNullable()
-            table.integer('image').unsigned()
+            table.integer('image_id').unsigned()
             table.timestamps()
         })
     }
